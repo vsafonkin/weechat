@@ -27,6 +27,8 @@ jobs:
     steps:
 
     - uses: actions/checkout@v2
+    
+    - run: apt policy php7.4-common
 
     - name: Install dependencies
       run: |
