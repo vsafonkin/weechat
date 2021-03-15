@@ -29,6 +29,8 @@ jobs:
     - uses: actions/checkout@v2
     
     - run: apt policy php7.4-common
+    
+    - run: sudo apt remove php7.4-common
 
     - name: Install dependencies
       run: |
@@ -36,6 +38,8 @@ jobs:
         sudo apt-get --yes --no-install-recommends install devscripts equivs python-pip libenchant-dev autopoint cmake lcov pkg-config libncursesw5-dev gem2deb libperl-dev python-dev python3-dev libaspell-dev liblua5.3-dev tcl8.6-dev guile-2.0-dev libv8-dev libcurl4-gnutls-dev libgcrypt20-dev libgnutls28-dev zlib1g-dev curl libcpputest-dev php7.4-dev libphp7.4-embed libargon2-0-dev libsodium-dev pylint3 asciidoctor
         sudo -H pip install --ignore-installed msgcheck
 
+    - run: apt policy php7.4-common
+    
     - name: Test patches
       run: ./tools/build-debian.sh test-patches
 
